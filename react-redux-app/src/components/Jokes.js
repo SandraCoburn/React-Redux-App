@@ -9,19 +9,22 @@ const Jokes = props => {
       <h1>Dad Jokes</h1>
       {/* <img src={props.image} /> */}
       <button onClick={props.fetchJokes}>Get a Joke</button>
-      {!props.jokes && !props.isLoading && (
-        <h2>Go ahead and push the button to get a joke now!</h2>
-      )}
-      {props.isLoading && (
-        <Loader
-          type="Puff"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={3000} //3 secs
-        />
-      )}
-      {props.jokes && !props.isLoading && <h2>{props.jokes}</h2>}
+      <div className="card">
+        {!props.jokes && !props.isLoading && (
+          <h2>Go ahead and push the button to get a joke now!</h2>
+        )}
+        {props.isLoading && (
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
+        )}
+
+        {props.jokes && !props.isLoading && <h2>{props.jokes}</h2>}
+      </div>
     </div>
   );
 };
